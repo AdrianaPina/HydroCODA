@@ -2,7 +2,7 @@
 #' Title
 #' @title Representative Stiff Diagram for the cluster classification of hydrochemical water samples.
 #' @description This function generates the representative Stiff Diagram (\cite{Stiff1951}) using the average concentration of each cluster.
-#' 
+#'  
 #' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclut}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
 #'
 #' @return

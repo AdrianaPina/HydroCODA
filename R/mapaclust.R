@@ -37,6 +37,13 @@
 # }
 
 #' 
+#' @param Dataclust 
+#' @param crsprj 
+#' @param Area 
+#' @param Geology 
+#' @param Faults 
+#' @param mapout 
+#' @param Filename 
 mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, Filename = "clusterMap"){
   
   dfb <- cbind(Dataclust[,1:4],Dataclust$cluster) 

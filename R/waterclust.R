@@ -6,7 +6,6 @@
 #' @param height is an integer that defines the height of the treecut to define clusters
 #' @param typ is a double between 0 and 1 which defines the analysis type. 1 for the samples clustering and 2 for the chemical compounds clustering 
 #'
-@return
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @export

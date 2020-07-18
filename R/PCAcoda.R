@@ -3,7 +3,7 @@
 #' Title
 #' @title Principal Analysis COmponents using the Compositional Data (CoDa).
 #' @description Principal Analysis COmponents using the Compositional Data (CoDa) approach for the data treatment and a clr transformation (\cite{Aitchison1982a})
-#'
+#' 
 #' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclut}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
 #' @param comp1 is a numeric value indicating the number of the component to be plotted on the x-axys.
 #' @param comp2 is a numeric value indicating the number of the component to be plotted on the y-axys.

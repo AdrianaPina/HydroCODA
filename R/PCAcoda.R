@@ -1,7 +1,9 @@
 # paquetes: compositions, ggplot, plotly, stats
 
-#' Title
-#' @title Principal Analysis COmponents using the Compositional Data (CoDa).
+#' @name 
+#' PCAcoda
+#' 
+#' @title Principal Analysis Components using the Compositional Data (CoDa).
 #' @description Principal Analysis COmponents using the Compositional Data (CoDa) approach for the data treatment and a clr transformation (\cite{Aitchison1982a})
 #'
 #' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclut}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
@@ -11,6 +13,9 @@
 #' @return
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
+#' 
+#' @import stats
+#' 
 #' @export
 #'
 #' @examples
@@ -35,7 +40,7 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   Data <- Dataclust
   Data[,1:4] <- NULL
   Data$cluster <- NULL
-  MyComp = acomp(Data)
+  MyComp <- compositions::acomp(Data)
   Transf <- clr(MyComp)
   pca <- princomp(Transf) # compute principal component analysis
   

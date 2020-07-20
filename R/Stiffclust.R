@@ -11,6 +11,8 @@
 #' @export
 #'
 #' @examples
+#' # 
+#' data()
 #' Fig <- Stiffclust(Dataclust)
 #' Fig
 #' 
@@ -40,9 +42,9 @@ Stiffclust <- function(Dataclust){
     stiff$HCO3 <- mean(HCO3),
     stiff$Na <- mean(Na),
     stiff$Mg <- mean(Mg),
-    stiff$Ca <- mean(Ca),
+    stiff$Ca <- mean(Ca)
   )
-  title <- c("cluster", "Cl","SO4","HCO3","Na","Mg","Ca")
+  title <- c("cluster", "Cl", "SO4", "HCO3", "Na", "Mg", "Ca")
   colnames(stiff) <- title
   M_stiff <- data.frame(stiff)
   M_stiff$Na <- (-1) * M_stiff$Na
@@ -52,21 +54,23 @@ Stiffclust <- function(Dataclust){
   M_stiff <- t(M_stiff)
   
   N_clus <- ncol(M_stiff)
-  colorn = topo.colors(N_clus, alpha=1)
-  y <- rbind(1,2,3,3,2,1)
+  colorn = topo.colors(N_clus, alpha = 1)
+  y <- rbind(1, 2, 3, 3, 2, 1)
   y <- y/10
   
-  D_stiff <- cbind(M_stiff,y)
-  maxVal <- max(max(D_stiff[,1:N_clus]),abs(min(D_stiff[,1:N_clus])))
+  D_stiff <- cbind(M_stiff, y)
+  maxVal <- max(max(D_stiff[ ,1:N_clus]), abs(min(D_stiff[ ,1:N_clus])))
   
   #Figura
-    par(mar=c(1,1,1,1))
-    par(mfrow=c(N_clus,1))
+  if(plt == TRUE){
+    par(mar = c(1, 1, 1, 1))
+    par(mfrow = c(N_clus, 1))
     for (i in 1:N_clus) {
       Fig <- plot(D_stiff[,i], y, cex = 0, xlim = c(-(maxVal), maxVal),
                 yaxt = 'n',xlab = "", ylab = "",ann = TRUE, bty = 'n',
                 main = i)
       polygon(D_stiff[,i],y,col = colorn[i]) 
     }
+  }  
   return(Fig)
 }

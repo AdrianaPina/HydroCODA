@@ -21,21 +21,16 @@
 #' @examples
 #' PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 #' 
-#' @article{Stiff1951,
-#' author = {Stiff, Henry A.},
-#' doi = {10.2118/951376-G},
-#' file = {:C$\backslash$:/Users/USER/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Stiff - 1951 - The Interpretation of Chemical Water Analysis by Means of Patterns.pdf:pdf},
-#' issn = {0149-2136},
-#' journal = {Journal of Petroleum Technology},
-#' mendeley-groups = {Propuesta/hidrogeoquimica},
-#' month = {oct},
-#' number = {10},
-#' pages = {15--3},
-#' publisher = {Society of Petroleum Engineers},
-#' title = {{The Interpretation of Chemical Water Analysis by Means of Patterns}},
-#' volume = {3},
-#' year = {1951}
-#' }
+#' @article{Aitchison1982a,
+# author = {Aitchison, J},
+# journal = {Journal of the Royal Statistical Society. Series B (Methodological)},
+# keywords = {digamma function,maximum likelihood estimation,method of moments,multivariate},
+# number = {2},
+# pages = {139--177},
+# title = {{The Statistical Analysis of Compositional Data}},
+# volume = {44},
+# year = {1982}
+# }
 PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   Data <- Dataclust
   Data[,1:4] <- NULL
@@ -44,7 +39,7 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   Transf <- clr(MyComp)
   pca <- princomp(Transf) # compute principal component analysis
   
-  par(mar=c(2,1,1,1))
+  par(mar=c(2,2,1,1))
   par(mfrow=c(1,1))
   screefig <- screeplot(pca, type = "lines") # 
 
@@ -56,11 +51,14 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   colorn = topo.colors(N_clus, alpha=1)
   
   #Figure
-  
-  fig <- plot_ly(scores1, x= scores1[,comp1], y = scores1[,comp2], name = scores1[,ncol(scores1)], 
-                 type = 'scatter', mode = 'markers',text = ~paste(Dataclust$ID, 
-                                                                  "<br />", "Cluster",scores1[,ncol(scores1)]), hoverinfo = "text") 
-  fig <- fig %>%    add_annotations(ax = loads[,1]*10, ay = loads[,2]*10, axref='x', ayref='y', 
+  name <- as.character(Dataclust$tipo)
+  fig <- plot_ly(scores1, x= scores1[,comp1], y = scores1[,comp2], 
+                 name = scores1[,ncol(scores1)], 
+                 type = 'scatter', mode = 'markers',
+                 text = ~paste(Dataclust$ID, "<br />", 
+                               "Cluster", scores1[,ncol(scores1)],"<br />", name), 
+                 hoverinfo = "text") 
+  fig <- fig %>%    add_annotations(ax = loads[,1]*10, ay = loads[,comp2]*10, axref='x', ayref='y', 
                                     x = 0, y = 0, xref='x', yref='y',arrowcolor='gray',
                                     text = row.names(loads),arrowhead = 0,arrowsize = 0.00001,
                                     font = list(color = '#264E86',
@@ -73,9 +71,9 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   
   fig
   
-  ResultPCA <- summary(pca)
-  list = c(pca,ResultPCA)
-  
+  ResultsPCA <- summary(pca)
+
   return(fig)
-  return(list)
+  return(ResultsPCA)
+  return(pca)
 }

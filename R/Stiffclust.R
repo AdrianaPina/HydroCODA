@@ -63,14 +63,18 @@ Stiffclust <- function(Dataclust){
   
   #Figura
   if(plt == TRUE){
-    par(mar = c(1, 1, 1, 1))
+    par(mar = c(1, 0.5, 0.5, 0.5))
     par(mfrow = c(N_clus, 1))
-    for (i in 1:N_clus) {
+    aux <- N_clus-1
+    for (i in 1:aux) {
       Fig <- plot(D_stiff[,i], y, cex = 0, xlim = c(-(maxVal), maxVal),
-                yaxt = 'n',xlab = "", ylab = "",ann = TRUE, bty = 'n',
-                main = i)
-      polygon(D_stiff[,i],y,col = colorn[i]) 
+                yaxt = 'n', xaxt = 'n', xlab = "", ylab = i, ann = TRUE, bty = 'n')
+      polygon(D_stiff[,i], y, col = colorn[i]) 
     }
-  }  
+  }
+    par(mar = c(2, 0.5, 0.5, 0.5))
+    Fig <- plot(D_stiff[,N_clus], y, cex = 0, xlim = c(-(maxVal), maxVal),
+                yaxt = 'n', xlab = "", ylab = N_clus, ann = TRUE, bty = 'n')
+    polygon(D_stiff[,N_clus], y, col = colorn[N_clus]) 
   return(Fig)
 }

@@ -12,17 +12,14 @@
 #' @param Faults is a shape with the faults of the area of interest. 
 #' @param mapout whether to render the map in the browser (TRUE) or the RStudio viewer (FALSE).
 #' @param Filename is a character varible to assign the name of the generated figure.
-#'
+#' @param shp_field is a character varible indicating the shape field name that contains the geological description to show in the map.
 #' @return
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @export
 #'
 #' @examples
-#' crsprj <- 4326
-#' mapout <- TRUE
-#' Dataclust < - 
-#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, Filename = "clusterMap")
+#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, shp_field = "SimboloUC", Filename = "clusterMap")
 #' Fig
 #' 
 #' @article{Aitchison1982a,
@@ -36,15 +33,8 @@
 # year = {1982}
 # }
 
-#' 
-#' @param Dataclust 
-#' @param crsprj 
-#' @param Area 
-#' @param Geology 
-#' @param Faults 
-#' @param mapout 
-#' @param Filename 
-mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, Filename = "clusterMap"){
+
+mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field, Filename){
   
   dfb <- cbind(Dataclust[,1:4],Dataclust$cluster) 
   N_clus <- max(summary(Dataclust$cluster))
@@ -75,9 +65,7 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
             offset.y = 40,
             width = 70,
             height = 70)
-    # mapshot(Mapa, url = paste0(getwd(), "/clusterMap.html"),
-    #         file = paste0(getwd(), "/clusterMap.png"))
-#mapshot(Mapa, url = paste(getwd(), "/clusterMap.html"))
-  
+    mapshot(Mapa, url = paste0(getwd(), "/", Filename, ".html"))
+    
   return(Mapa)
 }

@@ -10,16 +10,18 @@ library(stats)
 library(rgdal)
 
 
-
 setwd("D:/MEGIA/Hidroquimica")
 Data = read.csv("Balance_borra.csv", header = TRUE,sep = ";")
 Area <- readOGR("Area contractual.shp")
 Geologia <- readOGR("D:/MEGIA/Hidroquimica/shp/Unidades_Geo.shp")
 Fallas <- readOGR("D:/MEGIA/Hidroquimica/shp/Fallas.shp")
+shp_field = "SimboloUC"
+Filename = "clusterMap"
 
-
-Dataclust <- waterclust(Data, 35, typ = 2)
-mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, Filename = "clusterMap")
+Dataclust <- waterclust(Data, height = 35, typ = 2)
+mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field = "SimboloUC", Filename = "clusterMap")
+plt = TRUE
 Stiffclust(Dataclust)
-Results <- PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
-  
+
+PCAcoda(Dataclust, comp1 = 1, comp2 = 3)
+

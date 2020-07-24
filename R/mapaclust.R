@@ -16,7 +16,7 @@
 #' @return
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
-#' @export
+#' @export 
 #'
 #' @examples
 #' Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, shp_field = "SimboloUC", Filename = "clusterMap")

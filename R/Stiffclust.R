@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#' # 
+#' #  
 #' data()
 #' Fig <- Stiffclust(Dataclust)
 #' Fig

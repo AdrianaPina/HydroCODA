@@ -73,7 +73,7 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   
   ResultsPCA <- summary(pca)
 
-  return(fig)
+  return(fig) 
   return(ResultsPCA)
   return(pca)
 }

@@ -42,5 +42,5 @@ waterclust <- function(Data, height, typ = 2){
   #dimnames(Dataclust)[[1]] <- Data$ID  
     
   #write.table(Dataclust, file = "Dataclust.csv", row.names=F)
-  print(Dataclust, Dendogram)
+  print(Dataclust, Dendogram) 
 }

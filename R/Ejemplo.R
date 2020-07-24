@@ -9,7 +9,7 @@ library(utils)
 library(stats)
 library(rgdal)
 
-
+ 
 setwd("D:/MEGIA/Hidroquimica")
 Data = read.csv("Balance_borra.csv", header = TRUE,sep = ";")
 Area <- readOGR("Area contractual.shp")

@@ -15,6 +15,9 @@ Description: A tool to perform a  Multistatical Analysis using the Compositional
             Finally, Principal Component Analysis is used to steimate new variables called principal components as linear combinations of the original
             variables that maximize the variance; an interactive compositional PCA biplot is drawn allowing the identificaction of the assigned cluster, 
             the sample name and the source type.
+            See: Aitchison, J. (1982). <DOI:10.1111/j.2517-6161.1982.tb01195.x>The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
+            See: Stiff, H. A. (1951). <DOI:10.2118/951376-G> The Interpretation of Chemical Water Analysis by Means of Patterns. Journal of Petroleum Technology, 3(10), 15–3.
+            See: Piña, A., Donado, L. D., Blake, S., & Cramer, T. (2018). <DOI:10.1016/j.apgeochem.2018.05.012> Compositional multivariate statistical analysis of hydrogeochemical processes in a fractured massif: La Línea Tunnel project, Colombia. Applied Geochemistry, 95C, 1–18.
 Imports: 
     compositions,
     dplyr,

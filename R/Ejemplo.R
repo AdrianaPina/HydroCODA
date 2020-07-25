@@ -17,11 +17,13 @@ Geologia <- readOGR("D:/MEGIA/Hidroquimica/shp/Unidades_Geo.shp")
 Fallas <- readOGR("D:/MEGIA/Hidroquimica/shp/Fallas.shp")
 shp_field = "SimboloUC"
 Filename = "clusterMap"
+height = 35
+typ = 2
 
-Dataclust <- waterclust(Data, height = 35, typ = 2)
-mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field = "SimboloUC", Filename = "clusterMap")
-plt = TRUE
-Stiffclust(Dataclust)
+#Dataclust <- waterclust(Data, height, typ)
+#mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field = "SimboloUC", Filename = "clusterMap")
+#plt = TRUE
+#Stiffclust(Dataclust)
 
-PCAcoda(Dataclust, comp1 = 1, comp2 = 3)
+#PCAcoda(Dataclust, comp1 = 1, comp2 = 3)
 

@@ -1,13 +1,20 @@
 Package: HydroCODA
-Title: What the Package Does (One Line, Title Case)
+Title: Multistatical Analysis using the Compositional Data Approach for hydrochemical water samples
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    c(person(given = "Adriana",
+           family = "Piña",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "appinaf@unal.edu.co",
+           comment = c(ORCID = "0000-0003-2252-2160")),
+           person("David", "Zamora", email = "dazamoraa@unal.edu.co", 
+           comment = c(ORCID = "0000-0002-2256-7054"), role = c("aut")))
+Description: A tool to perform a  Multistatical Analysis using the Compositional Data approach and a center-log-ratio (clr) transformation for the analysis of water samples.
+            It allows to perform hierarchical cluster analysis and to create an interactive map that includes the location of the water sample and, 
+            the assigned cluster. Based on the clustering results, representative Stiff diagrams for each cluster are built. 
+            Finally, Principal Component Analysis is used to steimate new variables called principal components as linear combinations of the original
+            variables that maximize the variance; an interactive compositional PCA biplot is drawn allowing the identificaction of the assigned cluster, 
+            the sample name and the source type.
 Imports: 
     compositions,
     dplyr,
@@ -16,11 +23,12 @@ Imports:
     plotly,
     rgdal,
     sf
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
     R (>= 2.10)
+Suggests: 
+    testthat

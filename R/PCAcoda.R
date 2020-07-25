@@ -2,7 +2,7 @@
 
 #' @name 
 #' PCAcoda
-#' 
+#'
 #' @title Principal Analysis Components using the Compositional Data (CoDa).
 #' @description Principal Analysis COmponents using the Compositional Data (CoDa) approach for the data treatment and a clr transformation (\cite{Aitchison1982a})
 #'
@@ -36,12 +36,12 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   Data[,1:4] <- NULL
   Data$cluster <- NULL
   MyComp <- compositions::acomp(Data)
-  Transf <- clr(MyComp)
-  pca <- princomp(Transf) # compute principal component analysis
+  Transf <- compositions::clr(MyComp)
+  pca <- stats::princomp(Transf) # compute principal component analysis
   
   par(mar=c(2,2,1,1))
   par(mfrow=c(1,1))
-  screefig <- screeplot(pca, type = "lines") # 
+  screefig <- stats::screeplot(pca, type = "lines") # 
 
   loads <- pca$loadings
   scor <- pca$scores

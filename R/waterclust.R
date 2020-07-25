@@ -13,7 +13,7 @@
 #' @examples
 #'Dataclust <- waterclust(Data, height = 35, typ = 2)
 
-waterclust <- function(Data, height, typ = 2){
+waterclust <- function(Data, height, typ){
   
   
   #Eliminar variables con más del 15% de datos faltantes
@@ -29,13 +29,13 @@ waterclust <- function(Data, height, typ = 2){
   dd <- dist(t(clr(Comp)))  
   }
   else {
-  dd <- clr(Comp)
+  dd <- compositions::clr(Comp)
   }  
-  Tree <- hclust(dist(dd), method = "ward.D")
+  Tree <- stats::hclust(dist(dd), method = "ward.D")
   Dendogram <- plot(Tree, labels = Tree$X,cex.axis = 1.2,cex.lab = 1,cex = 0.55, col = "gray40",main="Dendrograma",hang = -1)
-  f <- rect.hclust(Tree, h = height)
+  f <- stats::rect.hclust(Tree, h = height)
   N_clus <- length(f)
-  cut_tree <- cutree(Tree, k = N_clus)
+  cut_tree <- stats::cutree(Tree, k = N_clus)
   cluster <- as.matrix(cut_tree)
   Dataclust <- cbind(Data[,1:4], Datachem, cluster)
   #Dataclust <- as.data.frame(Dataclust)

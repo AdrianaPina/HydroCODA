@@ -19,7 +19,6 @@ This function generates the representative Stiff Diagram (\cite{Stiff1951}) usin
 Title
 }
 \examples{
-#  
 data()
 Fig <- Stiffclust(Dataclust)
 Fig

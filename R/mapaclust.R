@@ -1,4 +1,5 @@
-#' Title
+#' @name 
+#' mapaclust
 #' @title Interactive map showing clusters location.
 #' @description This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation (\cite{Aitchison1982a}).
 #' @details This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclut}} function.
@@ -16,6 +17,7 @@
 #' @export 
 #'
 #' @examples
+#' data(Area)
 #' Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, shp_field = "SimboloUC", Filename = "clusterMap")
 #' Fig
 #' 
@@ -55,14 +57,8 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
     mapview(dfb_project, zcol = "cluster",legend = TRUE,
             #cex = "cluster", 
             col.regions = colorn)
-    img <- "./Logo_HYDS_2019.svg" #Como agregar la ruta de la imagen?
-    leafem::addLogo(Mapa, img, src = "local",
-            position = "bottomleft",
-            offset.x = 5,
-            offset.y = 40,
-            width = 70,
-            height = 70)
+  if(!is.null(Filename)){
     mapshot(Mapa, url = paste0(getwd(), "/", Filename, ".html"))
-    
+  }
   return(Mapa)
 }

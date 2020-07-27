@@ -39,8 +39,6 @@ mapaclust(
 This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation (\cite{Aitchison1982a}).
 }
 \details{
-Title
-
 This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclut}} function.
 }
 \examples{

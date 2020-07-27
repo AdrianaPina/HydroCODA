@@ -55,7 +55,7 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
     mapview(dfb_project, zcol = "cluster",legend = TRUE,
             #cex = "cluster", 
             col.regions = colorn)
-    img <- "D:/MEGIA/Hidroquimica/shp/Logo_HYDS_2019.svg" #Como agregar la ruta de la imagen?
+    img <- "./Logo_HYDS_2019.svg" #Como agregar la ruta de la imagen?
     leafem::addLogo(Mapa, img, src = "local",
             position = "bottomleft",
             offset.x = 5,

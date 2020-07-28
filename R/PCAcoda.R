@@ -72,8 +72,6 @@ PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
   fig
   
   ResultsPCA <- summary(pca)
-
-  return(fig) 
-  return(ResultsPCA)
-  return(pca)
+  output <- list(fig = fig, ResultsPCA = ResultsPCA, pca = pca)
+  return(output)
 }

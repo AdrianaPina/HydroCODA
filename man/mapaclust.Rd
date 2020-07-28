@@ -42,6 +42,7 @@ This function generates an interactive map of zone showing the samples location 
 This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclut}} function.
 }
 \examples{
+data(Area)
 Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, shp_field = "SimboloUC", Filename = "clusterMap")
 Fig
 

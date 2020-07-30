@@ -1,37 +1,31 @@
 #' @name 
 #' mapaclust
 #' @title Interactive map showing clusters location.
-#' @description This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation (\cite{Aitchison1982a}).
-#' @details This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclut}} function.
-#' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclut}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
+#' @description This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation \cite{(Aitchison, 1982)}.
+#' @details This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclust}} function.
+#' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. 
+#' Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
+#' Aditional chemical compounds must be added in columns after the Fe column concentration.
+#' @param height is an integer that defines the height of the treecut to define clusters
 #' @param crsprj is the coordinate reference system (CRS) of an object. Default value is EPSG 4326 for Coordenadas Geográficas WGS84.
 #' @param Area is a shape with the area of interest.
 #' @param Geology is a shape with the geology of the area of interest.
 #' @param Faults is a shape with the faults of the area of interest. 
 #' @param mapout whether to render the map in the browser (TRUE) or the RStudio viewer (FALSE).
-#' @param Filename is a character varible to assign the name of the generated figure.
+#' @param Filename is a character varible to assign the file name to save the interactive map in HTML format.
 #' @param shp_field is a character varible indicating the shape field name that contains the geological description to show in the map.
-#' @return
+#' @return Create a dynamic map showing the geographical distribution of water sample clusters.
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
-#' @export 
-#'
+#' @references 
+#' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
-#' data(Area)
-#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, shp_field = "SimboloUC", Filename = "clusterMap")
+#' data(Balance, geological_units, faults, Area_data)
+#' Dataclust <- waterclust(Balance, height = 35, typ = 2)
+#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area.Case.Study, 
+#'                  Geology = geological_units, Faults =faults, mapout = TRUE, 
+#'                  shp_field = "SimboloUC", Filename = "clusterMap")
 #' Fig
-#' 
-#' @article{Aitchison1982a,
-# author = {Aitchison, J},
-# journal = {Journal of the Royal Statistical Society. Series B (Methodological)},
-# keywords = {digamma function,maximum likelihood estimation,method of moments,multivariate},
-# number = {2},
-# pages = {139--177},
-# title = {{The Statistical Analysis of Compositional Data}},
-# volume = {44},
-# year = {1982}
-# }
-
 
 mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field, Filename){
   
@@ -42,21 +36,25 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   Titulos <- c('ID','lat','long','Tipo','cluster')
   colnames(dfb) <- Titulos
   dfb = as.data.frame(dfb)
-  dfb$poph <- paste(Dataclust$ID, "Cluster", Dataclust$cluster, Data$tipo)
+  dfb$poph <- paste(Dataclust$ID, "Cluster", Dataclust$cluster, Dataclust$tipo)
   dfb$lat= Dataclust$lat
   dfb$long= Dataclust$long
-  dfb_project <- st_as_sf(dfb, coords = c("long", "lat"), crs=  crsprj) #dar formato espacial
+  dfb_project <- sf::st_as_sf(dfb, coords = c("long", "lat"), crs=  crsprj) #dar formato espacial
 
   
-  Mapa <- mapView(Area, map.types = c("Esri.WorldShadedRelief", "OpenStreetMap.DE"), 
-                  color = "red", alpha.regions = 0, legend = FALSE,
-                  viewer.suppress = mapout)+
-    mapView(Fallas,color = "black",legend = FALSE)+
-    mapView(Geologia, zcol = "SimboloUC",alpha.regions = 0.5,
-            legend = FALSE) +
-    mapview(dfb_project, zcol = "cluster",legend = TRUE,
-            #cex = "cluster", 
-            col.regions = colorn)
+  Mapa <-  mapview(dfb_project, zcol = "cluster",legend = TRUE,
+                   viewer.suppress = mapout,
+                   col.regions = colorn)
+  if(!is.null(Area)){
+    Mapa <- Mapa + mapView(Area, color = "red",alpha.regions = 0,legend = FALSE)
+  }
+  if(!is.null(Faults)){
+    Mapa <- Mapa + mapView(Faults,color = "black",legend = FALSE)
+  }
+  if(!is.null(Geology)){
+    Mapa <- Mapa + mapView(Geology, zcol = shp_field, alpha.regions = 0.4,
+                           legend = FALSE) 
+    }
   if(!is.null(Filename)){
     mapshot(Mapa, url = paste0(getwd(), "/", Filename, ".html"))
   }

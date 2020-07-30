@@ -16,7 +16,9 @@ mapaclust(
 )
 }
 \arguments{
-\item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclut}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.}
+\item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function.
+ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.
+Aditional chemical compounds must be added in columns after the Fe column concentration.}
 
 \item{crsprj}{is the coordinate reference system (CRS) of an object. Default value is EPSG 4326 for Coordenadas Geográficas WGS84.}
 
@@ -30,22 +32,29 @@ mapaclust(
 
 \item{shp_field}{is a character varible indicating the shape field name that contains the geological description to show in the map.}
 
-\item{Filename}{is a character varible to assign the name of the generated figure.}
+\item{Filename}{is a character varible to assign the file name to save the interactive map in HTML format.}
+
+\item{height}{is an integer that defines the height of the treecut to define clusters}
 }
 \value{
-
+create a dynamic map showing the geographical distribution of water sample clusters.
 }
 \description{
-This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation (\cite{Aitchison1982a}).
+This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation \cite{(Aitchison, 1982)}.
 }
 \details{
-This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclut}} function.
+This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclust}} function.
 }
 \examples{
-data(Area)
-Fig <- mapaclust(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = TRUE, shp_field = "SimboloUC", Filename = "clusterMap")
+data(Balance, geological_units, faults, Area_data)
+Dataclust <- waterclust(Balance, height = 35, typ = 2)
+Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area.Case.Study, 
+                 Geology = geological_units, Faults =faults, mapout = TRUE, 
+                 shp_field = "SimboloUC", Filename = "clusterMap")
 Fig
-
+}
+\references{
+Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 }
 \author{
 Adriana Piña \href{mailto:appinaf@unal.edu.co}{appinaf@unal.edu.co}\cr

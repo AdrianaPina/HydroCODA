@@ -3,22 +3,19 @@
 \docType{data}
 \name{Area_data}
 \alias{Area_data}
-\title{Area.data}
+\title{Area_data}
 \format{
-A data frame with X rows and Y variables:
+A shape file with the polygon of the study area:
 \describe{
-\item{X}{description 1}
-\item{Y}{description 2}
-...
+\item{x}{The min and max latitud}
+\item{y}{The min and max longitud}
+\item{CRS arguments} {The projection of the shape file}
 }
-}
-\source{
-\url{http://www.XXXX.info/}
 }
 \usage{
 Area_data
 }
 \description{
-Area.data
+Area_data
 }
 \keyword{datasets}

@@ -7,38 +7,22 @@
 Stiffclust(Dataclust)
 }
 \arguments{
-\item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclut}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.}
+\item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.}
 }
 \value{
-
+draws the representative CoDa Stiff Diagram for the cluster classification of hydrochemical water samples.
 }
 \description{
-This function generates the representative Stiff Diagram (\cite{Stiff1951}) using the average concentration of each cluster.
-}
-\details{
-Title
+This function generates the representative CoDA Stiff Diagrams \cite{(Stiff, 1951)} using the mean chemical concentration of each cluster.
 }
 \examples{
-data()
+data(Balance)
+Dataclust <- waterclust(Balance, height = 35, typ = 2)
 Fig <- Stiffclust(Dataclust)
 Fig
-
-#' @article{Stiff1951,
-author = {Stiff, Henry A.},
-doi = {10.2118/951376-G},
-file = {:C$\backslash$:/Users/USER/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Stiff - 1951 - The Interpretation of Chemical Water Analysis by Means of Patterns.pdf:pdf},
-issn = {0149-2136},
-journal = {Journal of Petroleum Technology},
-mendeley-groups = {Propuesta/hidrogeoquimica},
-month = {oct},
-number = {10},
-pages = {15--3},
-publisher = {Society of Petroleum Engineers},
-title = {{The Interpretation of Chemical Water Analysis by Means of Patterns}},
-volume = {3},
-year = {1951}
 }
-
+\references{
+Stiff, H. A. (1951). The Interpretation of Chemical Water Analysis by Means of Patterns. Journal of Petroleum Technology, 3(10), 15–3. <DOI: 10.2118/951376-G>
 }
 \author{
 Adriana Piña \href{mailto:appinaf@unal.edu.co}{appinaf@unal.edu.co}\cr

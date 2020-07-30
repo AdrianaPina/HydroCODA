@@ -5,20 +5,21 @@
 \alias{faults}
 \title{faults}
 \format{
-A data frame with X rows and Y variables:
+A shape file with the faults of the study area (Magdalena Middle Valley, Colombia):
 \describe{
-\item{X}{description 1}
-\item{Y}{description 2}
-...
+\item{x}{The min and max latitud}
+\item{y}{The min and max longitud}
+\item{SimboloUC}{The name of the fault}
+\item{CRS arguments} {The projection of the shape file}
 }
 }
 \source{
-\url{http://www.XXXX.info/}
+\url{https://www.datos.gov.co/dataset/Fallas/8gux-3y6i}
 }
 \usage{
 faults
 }
 \description{
-xxxxxxxxx......
+faults
 }
 \keyword{datasets}

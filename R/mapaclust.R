@@ -4,7 +4,7 @@
 #' @description This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation \cite{(Aitchison, 1982)}.
 #' @details This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclust}} function.
 #' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. 
-#' Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
+#' ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
 #' Aditional chemical compounds must be added in columns after the Fe column concentration.
 #' @param height is an integer that defines the height of the treecut to define clusters
 #' @param crsprj is the coordinate reference system (CRS) of an object. Default value is EPSG 4326 for Coordenadas Geográficas WGS84.
@@ -14,7 +14,7 @@
 #' @param mapout whether to render the map in the browser (TRUE) or the RStudio viewer (FALSE).
 #' @param Filename is a character varible to assign the file name to save the interactive map in HTML format.
 #' @param shp_field is a character varible indicating the shape field name that contains the geological description to show in the map.
-#' @return Create a dynamic map showing the geographical distribution of water sample clusters.
+#' @return create a dynamic map showing the geographical distribution of water sample clusters.
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @references 

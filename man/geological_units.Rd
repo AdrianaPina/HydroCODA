@@ -10,8 +10,6 @@ A shape file with the geology of the study area (Magdalena Middle Valley, Colomb
 \item{x}{The min and max latitud}
 \item{y}{The min and max longitud}
 \item{SimboloUC}{The geological descrition of each unit}
-\item{CRS arguments} {The projection of the shape file}
-...
 }
 }
 \source{

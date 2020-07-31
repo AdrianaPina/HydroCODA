@@ -4,7 +4,7 @@
 \alias{PCAcoda}
 \title{Principal Analysis Components using the Compositional Data (CoDA) approach.}
 \usage{
-PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
+PCAcoda(Dataclust, comp1, comp2)
 }
 \arguments{
 \item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function.
@@ -22,11 +22,6 @@ The second one is a list with class "princomp" (see \code{\link{compositions}} d
 }
 \description{
 Principal Analysis Components using the Compositional Data (CoDA) approach for the data treatment and the Centered log ratio - clr transformation \cite{(Aitchison, 1982)}.
-}
-\examples{
-data(Balance)
-Dataclust <- waterclust(Balance, height = 35, typ = 2)
-PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 }
 \references{
 Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.

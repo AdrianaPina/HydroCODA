@@ -16,8 +16,7 @@ draws the representative CoDa Stiff Diagram for the cluster classification of hy
 This function generates the representative CoDA Stiff Diagrams \cite{(Stiff, 1951)} using the mean chemical concentration of each cluster.
 }
 \examples{
-data(Balance)
-Dataclust <- waterclust(Balance, height = 35, typ = 2)
+data(Dataclust)
 Fig <- Stiffclust(Dataclust)
 Fig
 }

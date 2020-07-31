@@ -17,7 +17,7 @@ mapaclust(
 }
 \arguments{
 \item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function.
-Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.
+ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.
 Aditional chemical compounds must be added in columns after the Fe column concentration.}
 
 \item{crsprj}{is the coordinate reference system (CRS) of an object. Default value is EPSG 4326 for Coordenadas Geográficas WGS84.}
@@ -33,21 +33,20 @@ Aditional chemical compounds must be added in columns after the Fe column concen
 \item{shp_field}{is a character varible indicating the shape field name that contains the geological description to show in the map.}
 
 \item{Filename}{is a character varible to assign the file name to save the interactive map in HTML format.}
-
-\item{height}{is an integer that defines the height of the treecut to define clusters}
 }
 \value{
 Create a dynamic map showing the geographical distribution of water sample clusters.
+
+create a dynamic map showing the geographical distribution of water sample clusters.
 }
 \description{
-This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation \cite{(Aitchison, 1982)}.
+This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDA) approach for the data treatment and a clr trasnformation \cite{(Aitchison, 1982)}.
 }
 \details{
 This function requires the matrix with the hydrochemical composition of water samples and cluster classification obtained using the \code{\link{waterclust}} function.
 }
 \examples{
-data(Balance, geological_units, faults, Area_data)
-Dataclust <- waterclust(Balance, height = 35, typ = 2)
+data(geological_units, faults, Area_data, Dataclust)
 Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area.Case.Study, 
                  Geology = geological_units, Faults =faults, mapout = TRUE, 
                  shp_field = "SimboloUC", Filename = "clusterMap")

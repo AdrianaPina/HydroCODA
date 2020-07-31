@@ -10,18 +10,6 @@ A csv file that contains identification, logtitud, latitud, type of source and t
 \item{ID}{Identification of each water sample}
 \item{long}{Longitud of the point}
 \item{lat}{Latitud of the point}
-\item{source} {Type of source: well, piezometer, creek, etc.}
-\item{Mg} {Mg^{+2} concentration in meq/l.}
-\item{Ca} {Ca^{+2} concentration in meq/l.}
-\item{Na} {Na^{+} concentration in meq/l.}
-\item{K} {K^{+} concentration in meq/l.}
-\item{HCO3} {HCO_3^{-} concentration in meq/l.}
-\item{Cl} {Cl^{-} concentration in meq/l.}
-\item{SO4} {SO_4^{2-} concentration in meq/l.}
-\item{NO3} {NO_3^{-} concentration in meq/l.}
-\item{NO2} {NO_3^{-} concentration in meq/l.}
-\item{Fe} {Fe concentration in meq/l.}
-...
 }
 }
 \usage{

@@ -9,7 +9,6 @@ A shape file with the polygon of the study area:
 \describe{
 \item{x}{The min and max latitud}
 \item{y}{The min and max longitud}
-\item{CRS arguments} {The projection of the shape file}
 }
 }
 \usage{

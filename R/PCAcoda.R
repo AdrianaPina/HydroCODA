@@ -3,26 +3,28 @@
 #' @title Principal Analysis Components using the Compositional Data (CoDA) approach.
 #' @description Principal Analysis Components using the Compositional Data (CoDA) approach for the data treatment and the Centered log ratio - clr transformation \cite{(Aitchison, 1982)}.
 #' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function.
-#' Titles must be as follows: Sample name, source, long, lat, Mg, Ca, Na, K, HCO3, Cl,SO4, NO3, NO2, Fe. All concentrations are in meq/l.
+#' Titles must be as follows: ID, long, lat, source, Mg, Ca, Na, K, HCO3, Cl,SO4, NO3, NO2, Fe. All concentrations are in meq/l.
 #' Aditional chemical compounds must be added in columns after the Fe column concentration. 
 #' @param comp1 is a numeric value indicating the number of the component to be plotted on the x-axys.
 #' @param comp2 is a numeric value indicating the number of the component to be plotted on the y-axys.
+#'
 #' @return returns an interactive compositional biplot with the selected compositions, the samples description and the assigned cluster from the \code{\link{waterclust}} function; 
 #' a summary of the PCA analysis with the Standard deviation, the Proportion of Variance and the Cumulative Proportion for each composition;
 #' a list with class "princomp" (see \code{\link{compositions}} documentation)
 #' 
 #' @export 
 #' 
+#' @return a list that comprises a figure and two dataframes. The figure is an interactive compositional biplot with the selected compositions, the samples description and the assigned cluster from the \code{\link{waterclust}} function;
+#' The first list, is the summary of the PCA analysis with the Standard deviation, the Proportion of Variance and the Cumulative Proportionfor each composition. 
+#' The second one is a list with class "princomp" (see \code{\link{compositions}} documentation).
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @references 
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
-#' data(Balance)
-#' Dataclust <- waterclust(Balance, height = 35, typ = 2)
 #' PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 
-PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
+PCAcoda <- function(Dataclust, comp1, comp2){
   Data <- Dataclust
   Data[,1:4] <- NULL
   Data$cluster <- NULL

@@ -7,17 +7,18 @@
 Stiffclust(Dataclust)
 }
 \arguments{
-\item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.}
+\item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.}
 }
 \value{
 Draws the representative CoDa Stiff Diagram for the cluster classification of hydrochemical water samples.
+
+draws the representative CoDa Stiff Diagram for the cluster classification of hydrochemical water samples.
 }
 \description{
 This function generates the representative CoDA Stiff Diagrams \cite{(Stiff, 1951)} using the mean chemical concentration of each cluster.
 }
 \examples{
-data(Balance)
-Dataclust <- waterclust(Balance, height = 35, typ = 2)
+data(Dataclust)
 Fig <- Stiffclust(Dataclust)
 Fig
 }

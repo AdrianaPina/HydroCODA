@@ -15,11 +15,9 @@
 #' @references 
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
-#' data(Balance)
-#' Dataclust <- waterclust(Balance, height = 35, typ = 2)
 #' PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 
-PCAcoda <- function(Dataclust, comp1 = 1, comp2 = 2){
+PCAcoda <- function(Dataclust, comp1, comp2){
   Data <- Dataclust
   Data[,1:4] <- NULL
   Data$cluster <- NULL

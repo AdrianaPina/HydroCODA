@@ -15,7 +15,8 @@
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
 #' data(Balance)
-#' Dataclust <- waterclust(Data, height = 35, typ = 2)
+#' Dataclust <- waterclust(Balance, height = 35, typ = 2)
+
 waterclust <- function(Data, height, typ){
   
   

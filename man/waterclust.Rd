@@ -8,7 +8,7 @@ waterclust(Data, height, typ)
 }
 \arguments{
 \item{Data}{is dataframe that contains the hydrochemical composition of water samples.
-Titles must be as follows: ID, long, lat, source, Mg, Ca, Na, K, HCO3, Cl,SO4, NO3, NO2, Fe.
+Titles must be as follows: Sample name, source, long, lat, Mg, Ca, Na, K, HCO3, Cl,SO4, NO3, NO2, Fe.
 All concentrations are in meq/l. Aditional chemical compounds must be added in columns after the Fe column concentration.}
 
 \item{height}{is an integer that defines the height of the treecut to define clusters}
@@ -16,7 +16,7 @@ All concentrations are in meq/l. Aditional chemical compounds must be added in c
 \item{typ}{is a double between 0 and 1 which defines the analysis type. \emph{typ = 1} for the samples clustering and, \emph{typ = 2} for the chemical compounds clustering.}
 }
 \value{
-prints a matrix that contains the hydrochemical composition of water samples and the assigned cluster. A dendogram using the established \emph{height} is plotted.
+Prints a matrix that contains the hydrochemical composition of water samples and the assigned cluster. A dendogram using the established \emph{height} is plotted.
 }
 \description{
 This function allows the user to define clusters according to the hydrochemical characteristics of water samples and to build dendograms,

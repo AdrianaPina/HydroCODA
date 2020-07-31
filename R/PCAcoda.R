@@ -10,6 +10,9 @@
 #' @return returns an interactive compositional biplot with the selected compositions, the samples description and the assigned cluster from the \code{\link{waterclust}} function; 
 #' a summary of the PCA analysis with the Standard deviation, the Proportion of Variance and the Cumulative Proportion for each composition;
 #' a list with class "princomp" (see \code{\link{compositions}} documentation)
+#' 
+#' @export 
+#' 
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @references 

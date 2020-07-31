@@ -15,6 +15,9 @@
 #' @param Filename is a character varible to assign the file name to save the interactive map in HTML format.
 #' @param shp_field is a character varible indicating the shape field name that contains the geological description to show in the map.
 #' @return Create a dynamic map showing the geographical distribution of water sample clusters.
+#' 
+#' @export
+#' 
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @references 

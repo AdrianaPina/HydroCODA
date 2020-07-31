@@ -17,7 +17,7 @@ mapaclust(
 }
 \arguments{
 \item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function.
-ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.
+Sample name, source, long, lat, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.
 Aditional chemical compounds must be added in columns after the Fe column concentration.}
 
 \item{crsprj}{is the coordinate reference system (CRS) of an object. Default value is EPSG 4326 for Coordenadas Geográficas WGS84.}
@@ -37,7 +37,7 @@ Aditional chemical compounds must be added in columns after the Fe column concen
 \item{height}{is an integer that defines the height of the treecut to define clusters}
 }
 \value{
-create a dynamic map showing the geographical distribution of water sample clusters.
+Create a dynamic map showing the geographical distribution of water sample clusters.
 }
 \description{
 This function generates an interactive map of zone showing the samples location and cluster classification using the Compositional Data (CoDa) approach for the data treatment and a clr trasnformation \cite{(Aitchison, 1982)}.

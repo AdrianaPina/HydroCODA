@@ -28,6 +28,7 @@ The second one is a list with class "princomp" (see \code{\link{compositions}} d
 Principal Analysis Components using the Compositional Data (CoDA) approach for the data treatment and the Centered log ratio - clr transformation \cite{(Aitchison, 1982)}.
 }
 \examples{
+data(Dataclust)
 PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 }
 \references{

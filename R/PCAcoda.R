@@ -7,7 +7,6 @@
 #' Aditional chemical compounds must be added in columns after the Fe column concentration. 
 #' @param comp1 is a numeric value indicating the number of the component to be plotted on the x-axys.
 #' @param comp2 is a numeric value indicating the number of the component to be plotted on the y-axys.
-#'
 #' @return returns an interactive compositional biplot with the selected compositions, the samples description and the assigned cluster from the \code{\link{waterclust}} function; 
 #' a summary of the PCA analysis with the Standard deviation, the Proportion of Variance and the Cumulative Proportion for each composition;
 #' a list with class "princomp" (see \code{\link{compositions}} documentation)
@@ -22,6 +21,7 @@
 #' @references 
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
+#' data(Dataclust)
 #' PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 
 PCAcoda <- function(Dataclust, comp1, comp2){
@@ -68,3 +68,4 @@ PCAcoda <- function(Dataclust, comp1, comp2){
   output <- list(fig = fig, ResultsPCA = ResultsPCA, pca = pca)
   return(output)
 }
+

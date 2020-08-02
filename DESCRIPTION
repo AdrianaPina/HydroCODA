@@ -24,6 +24,7 @@ Imports:
     dplyr,
     ggplot2,
     mapview,
+    magrittr,
     plotly,
     rgdal,
     sf

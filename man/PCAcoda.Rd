@@ -28,10 +28,12 @@ The second one is a list with class "princomp" (see \code{\link{compositions}} d
 Principal Analysis Components using the Compositional Data (CoDA) approach for the data treatment and the Centered log ratio - clr transformation \cite{(Aitchison, 1982)}.
 }
 \examples{
+data("Dataclust")
 PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 }
 \references{
-Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
+Aitchison, J. (1982). The Statistical Analysis of Compositional Data.
+Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 }
 \author{
 Adriana Piña \href{mailto:appinaf@unal.edu.co}{appinaf@unal.edu.co}\cr

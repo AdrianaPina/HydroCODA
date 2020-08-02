@@ -14,14 +14,20 @@
 #' 
 #' @export 
 #' 
+#' @import stats grDevices 
+#' 
 #' @return a list that comprises a figure and two dataframes. The figure is an interactive compositional biplot with the selected compositions, the samples description and the assigned cluster from the \code{\link{waterclust}} function;
 #' The first list, is the summary of the PCA analysis with the Standard deviation, the Proportion of Variance and the Cumulative Proportionfor each composition. 
 #' The second one is a list with class "princomp" (see \code{\link{compositions}} documentation).
+#' 
 #' @author Adriana Piña <appinaf@unal.edu.co>\cr
 #' David Zamora <dazamoraa@unal.edu.co> \cr
 #' @references 
-#' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
+#' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. 
+#' Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
+#' 
 #' @examples
+#' data("Dataclust")
 #' PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 
 PCAcoda <- function(Dataclust, comp1, comp2){
@@ -30,18 +36,18 @@ PCAcoda <- function(Dataclust, comp1, comp2){
   Data$cluster <- NULL
   MyComp <- compositions::acomp(Data)
   Transf <- compositions::clr(MyComp)
-  pca <- stats::princomp(Transf) # compute principal component analysis
+  pca <- princomp(Transf) # compute principal component analysis
   
   par(mar=c(2,2,1,1))
   par(mfrow=c(1,1))
-  screefig <- stats::screeplot(pca, type = "lines") # 
+  screefig <- screeplot(pca, type = "lines") # 
 
   loads <- pca$loadings
   scor <- pca$scores
   scores1<-cbind(scor,Dataclust$cluster)#clusters
   scores1 <- as.data.frame(scores1)
   N_clus <- max(summary(Dataclust$cluster))
-  colorn = topo.colors(N_clus, alpha=1)
+  colorn <- topo.colors(N_clus, alpha=1)
   
   #Figure
   name <- as.character(Dataclust$tipo)
@@ -51,13 +57,16 @@ PCAcoda <- function(Dataclust, comp1, comp2){
                  text = ~paste(Dataclust$ID, "<br />", 
                                "Cluster", scores1[,ncol(scores1)],"<br />", name), 
                  hoverinfo = "text") 
-  fig <- fig %>% plotly::add_annotations(ax = loads[,1]*10, ay = loads[,comp2]*10, axref='x', ayref='y', 
+  fig <- fig %>% 
+    plotly::add_annotations(ax = loads[,1]*10, ay = loads[,comp2]*10, axref='x', ayref='y', 
                                     x = 0, y = 0, xref='x', yref='y',arrowcolor='gray',
                                     text = row.names(loads),arrowhead = 0,arrowsize = 0.00001,
                                     font = list(color = '#264E86',
                                                 family = 'sans serif',
                                                 size = 16))
-  fig <- fig %>% plotly::layout(title = "CoDA+PCA", xaxis = list(title = paste("Comp ", comp1)),
+  
+  fig <- fig %>% 
+    plotly::layout(title = "CoDA+PCA", xaxis = list(title = paste("Comp ", comp1)),
                         yaxis = list(title = paste("Comp ", comp2)),
                         font = list(color = 'black',
                                     family = 'sans serif', size = 14))

@@ -27,6 +27,9 @@ Imports:
     magrittr,
     plotly,
     rgdal,
+    compositions,
+    tidyr,
+    stats,
     sf
 License: MIT + file LICENSE
 Encoding: UTF-8

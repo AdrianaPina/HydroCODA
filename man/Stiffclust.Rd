@@ -4,10 +4,12 @@
 \alias{Stiffclust}
 \title{Representative Stiff Diagram for the cluster classification of hydrochemical water samples.}
 \usage{
-Stiffclust(Dataclust)
+Stiffclust(Dataclust, plt)
 }
 \arguments{
 \item{Dataclust}{is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l.}
+
+\item{plt}{is a logical value to indicate whether plot is diplayed}
 }
 \value{
 Draws the representative CoDa Stiff Diagram for the cluster classification of hydrochemical water samples.
@@ -19,7 +21,7 @@ This function generates the representative CoDA Stiff Diagrams \cite{(Stiff, 195
 }
 \examples{
 data(Dataclust)
-Fig <- Stiffclust(Dataclust)
+Fig <- Stiffclust(Dataclust, plt = TRUE)
 Fig
 }
 \references{

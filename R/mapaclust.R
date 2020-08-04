@@ -26,7 +26,7 @@
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
 #' data(geological_units, faults, Area_data, Dataclust)
-#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area.Case.Study, 
+#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
 #'                  Geology = geological_units, Faults =faults, mapout = TRUE, 
 #'                  shp_field = "SimboloUC", Filename = "clusterMap")
 #' Fig
@@ -46,21 +46,21 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   dfb_project <- sf::st_as_sf(dfb, coords = c("long", "lat"), crs=  crsprj) #dar formato espacial
 
   
-  Mapa <-  mapview(dfb_project, zcol = "cluster",legend = TRUE,
+  Mapa <-  mapview::mapview(dfb_project, zcol = "cluster",legend = TRUE,
                    viewer.suppress = mapout,
                    col.regions = colorn)
   if(!is.null(Area)){
-    Mapa <- Mapa + mapView(Area, color = "red",alpha.regions = 0,legend = FALSE)
+    Mapa <- Mapa + mapview::mapView(Area, color = "red",alpha.regions = 0,legend = FALSE)
   }
   if(!is.null(Faults)){
-    Mapa <- Mapa + mapView(Faults,color = "black",legend = FALSE)
+    Mapa <- Mapa + mapview::mapView(Faults,color = "black",legend = FALSE)
   }
   if(!is.null(Geology)){
-    Mapa <- Mapa + mapView(Geology, zcol = shp_field, alpha.regions = 0.4,
+    Mapa <- Mapa + mapview::mapView(Geology, zcol = shp_field, alpha.regions = 0.4,
                            legend = FALSE) 
     }
   if(!is.null(Filename)){
-    mapshot(Mapa, url = paste0(getwd(), "/", Filename, ".html"))
+    mapview::mapshot(Mapa, url = paste0(getwd(), "/", Filename, ".html"))
   }
   return(Mapa)
 }

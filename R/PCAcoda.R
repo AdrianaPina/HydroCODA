@@ -77,8 +77,8 @@ PCAcoda <- function(Dataclust, comp1, comp2){
                                family = 'sans serif', size = 14))
   
   fig
-  
+  ResultsPCA <- summary(pca)
 
-  output <- list(fig = fig, pca = pca)
+  output <- list(fig = fig, ResultsPCA = ResultsPCA, pca = pca)
   return(output)
 }

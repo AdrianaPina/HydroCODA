@@ -37,7 +37,7 @@ PCAcoda <- function(Dataclust, comp1, comp2){
   Data$cluster <- NULL
   MyComp <- compositions::acomp(Data)
   Transf <- compositions::clr(MyComp)
-  pca <- compositions::princomp.rmult(Transf, robust = TRUE) # compute principal component analysis
+  pca <- compositions::princomp.rmult(Transf, cor=FALSE, robust = TRUE) # compute principal component analysis
   PoV <- pca$sdev^2/sum(pca$sdev^2)*100
   PoV <- formatC( signif(PoV, digits=3))
   
@@ -77,8 +77,8 @@ PCAcoda <- function(Dataclust, comp1, comp2){
                                family = 'sans serif', size = 14))
   
   fig
-  ResultsPCA <- summary(pca)
 
-  output <- list(fig = fig, ResultsPCA = ResultsPCA, pca = pca)
+
+  output <- list(fig = fig, pca = pca)
   return(output)
 }

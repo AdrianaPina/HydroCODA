@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # HydroCODA
-The R package aims to analyse underlying hydrogeological processes governing the hydrochemistry using the Compositional Data approach proposed by @Aitchison1982a prior a Multistatistical Analysis. It is a tool to perform water samples clasification by a Hierarchical Cluster Analysis - HCA and Principal Component Analysis - PCA. Finally, it creates the classical Stiff Diagram @Stiff1951 for each cluster and draws an interactive map with the location, description and cluster clasification. CoDA techniques have been well developed in the R-package "compositions" @VanDenBoogaart2015, then HydroCODA R-package is an implementation to enhance the hydrogeochemical analysis.
+The R package aims to analyse underlying hydrogeological processes governing the hydrochemistry using the Compositional Data approach proposed by @Aitchison1982 prior a Multistatistical Analysis. It is a tool to perform water samples clasification by a Hierarchical Cluster Analysis - HCA and Principal Component Analysis - PCA. Finally, it creates the classical Stiff Diagram @Stiff1951 for each cluster and draws an interactive map with the location, description and cluster clasification. CoDA techniques have been well developed in the R-package "compositions" @VanDenBoogaart2015, then HydroCODA R-package is an implementation to enhance the hydrogeochemical analysis.
 
 ## Installation
 Currently, you can install the version under development from [Github](https://github.com/AdrianaPina/HydroCODA), using these commands:

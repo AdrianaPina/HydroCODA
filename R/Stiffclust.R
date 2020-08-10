@@ -9,7 +9,7 @@
 #' 
 #' @export
 #' 
-#' @import dplyr 
+#' @import grDevices
 #' 
 #' @param Dataclust is a matrix that contains the hydrochemical composition of water samples and the assigned cluster using the \code{\link{waterclust}} function. ID, long, lat, source, Mg, Ca, Na,K,HCO3, Cl,SO4,NO3,NO2,Fe. All concentrations are in meq/l. 
 #' @return draws the representative CoDa Stiff Diagram for the cluster classification of hydrochemical water samples.
@@ -26,14 +26,14 @@
 Stiffclust <- function(Dataclust, plt){
   Datachem <- Dataclust
   Datachem[,1:4] <- NULL
-  by_cyl <- Datachem %>% group_by(cluster)
-  stiff <- by_cyl %>% summarise(
-    by_cyl$Cl <- mean(Cl),
-    by_cyl$SO4 <- mean(SO4),
-    by_cyl$HCO3 <- mean(HCO3),
-    by_cyl$Na <- mean(Na),
-    by_cyl$Mg <- mean(Mg),
-    by_cyl$Ca <- mean(Ca)
+  by_cyl <- dplyr::group_by(Datachem, cluster)
+  stiff <- dplyr::summarise(by_cyl,
+    Cl = mean(Cl),
+    SO4 = mean(SO4),
+    HCO3 = mean(HCO3),
+    Na = mean(Na),
+    Mg = mean(Mg),
+    Ca = mean(Ca)
   )
   title <- c("cluster", "Cl", "SO4", "HCO3", "Na", "Mg", "Ca")
   colnames(stiff) <- title

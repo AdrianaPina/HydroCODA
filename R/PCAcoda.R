@@ -14,7 +14,7 @@
 #' 
 #' @export 
 #' 
-#' @import grDevices 
+#' @import grDevices graphics
 #' 
 #' @return a list that comprises a figure and two dataframes. The figure is an interactive compositional biplot with the selected compositions, the samples description and the assigned cluster from the \code{\link{waterclust}} function;
 #' The first list, is the summary of the PCA analysis with the Standard deviation, the Proportion of Variance and the Cumulative Proportionfor each composition. 
@@ -44,8 +44,8 @@ PCAcoda <- function(Dataclust, comp1, comp2){
   print(summary(pca, loadings = TRUE, cutoff = 0.1), digits = 2)
   
   
-  par(mar=c(2,2,1,1))
-  par(mfrow=c(1,1))
+  par(mar = c(2,2,1,1))
+  par(mfrow = c(1,1))
   screefig <- screeplot(pca, type = "lines") # 
   
   loads <- pca$loadings

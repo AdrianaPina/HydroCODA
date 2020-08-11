@@ -8,6 +8,9 @@ header-includes:
   - \usepackage{amsmath}
 ---
 
+[![Build Status](https://travis-ci.com/AdrianaPina/HydroCODA.svg?branch=master)](https://travis-ci.com/AdrianaPina/HydroCODA)
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```

@@ -42,7 +42,7 @@ waterclust <- function(Data, height, typ){
   else {
   dd <- compositions::clr(Comp)
   }  
-  Tree <- stats::hclust(dist(dd), method = "ward.D")
+  Tree <- stats::hclust(stats::dist(dd), method = "ward.D")
   Dendogram <- plot(Tree, labels = Tree$X,cex.axis = 1.2,cex.lab = 1,cex = 0.55, 
                     col = "gray40",main="Dendrograma",hang = -1)
   f <- stats::rect.hclust(Tree, h = height)

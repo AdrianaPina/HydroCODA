@@ -46,7 +46,7 @@ PCAcoda <- function(Dataclust, comp1, comp2){
   
   par(mar = c(2,2,1,1))
   par(mfrow = c(1,1))
-  screefig <- screeplot(pca, type = "lines") # 
+  screefig <- stats::screeplot(pca, type = "lines") # 
   
   loads <- pca$loadings
   scor <- pca$scores

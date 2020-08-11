@@ -1,4 +1,6 @@
 ^.*\.Rproj$
+^README\.Rmd$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^\.travis\.yml$
+README-references.bib

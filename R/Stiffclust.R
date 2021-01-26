@@ -25,28 +25,31 @@
 
 Stiffclust <- function(Dataclust, plt){
   Datachem <- Dataclust
-  Datachem[,1:4] <- NULL
+  Datachem[,1] <- NULL
   by_cyl <- dplyr::group_by(Datachem, cluster)
   stiff <- dplyr::summarise(by_cyl,
     Cl = mean(Cl),
-    SO4 = mean(SO4),
     HCO3 = mean(HCO3),
-    Na = mean(Na),
+    SO4 = mean(SO4),
     Mg = mean(Mg),
-    Ca = mean(Ca)
+    Ca = mean(Ca),
+    Na = mean(Na),
+    K = mean(K),
   )
-  title <- c("cluster", "Cl", "SO4", "HCO3", "Na", "Mg", "Ca")
+  title <- c("cluster", "Cl", "HCO3", "SO4", "Mg", "Ca", "Na", "K")
   colnames(stiff) <- title
   M_stiff <- data.frame(stiff)
-  M_stiff$Na <- (-1) * M_stiff$Na
+  M_stiff$NaK <- (-1) * M_stiff$Na
   M_stiff$Mg <- (-1) * M_stiff$Mg
   M_stiff$Ca <- (-1) * M_stiff$Ca
   M_stiff$cluster <- NULL
+  M_stiff$Na <- NULL
+  M_stiff$K <- NULL
   M_stiff <- t(M_stiff)
   
   N_clus <- ncol(M_stiff)
   colorn = topo.colors(N_clus, alpha = 1)
-  y <- rbind(1, 2, 3, 3, 2, 1)
+  y <- rbind(3, 2, 1, 1, 2, 3)
   y <- y/10
   
   D_stiff <- cbind(M_stiff, y)
@@ -62,10 +65,18 @@ Stiffclust <- function(Dataclust, plt){
                 yaxt = 'n', xaxt = 'n', xlab = "", ylab = i, ann = TRUE, bty = 'n')
       polygon(D_stiff[,i], y, col = colorn[i]) 
     }
-  }
-    par(mar = c(2, 0.5, 0.5, 0.5))
+  
+    #par(mar = c(2, 0.5, 0.5, 0.5))
     Fig <- plot(D_stiff[,N_clus], y, cex = 0, xlim = c(-(maxVal), maxVal),
                 yaxt = 'n', xlab = "", ylab = N_clus, ann = TRUE, bty = 'n')
     polygon(D_stiff[,N_clus], y, col = colorn[N_clus]) 
+    mtext("meq/l", side = 1, adj = 0, cex = 0.7)
+    text(-maxVal, 0.3, "Na+K", cex = 0.9)
+    text(-maxVal, 0.2 , "Ca++", cex = 0.9)
+    text(-maxVal, 0.1, "Mg++", cex = 0.9)
+    text(maxVal, 0.3, "Cl-", cex = 0.9)
+    text(maxVal, 0.2 , "HCO3-", cex = 0.9)
+    text(maxVal, 0.1, "SO4--", cex = 0.9)
+  }
   print(Fig)
 }

@@ -25,6 +25,7 @@
 
 Stiffclust <- function(Dataclust, plt){
   Datachem <- Dataclust
+  cluster <- Cl <- HCO3 <-SO4 <- Mg <- Ca <- Na <- K <- NULL
   Datachem[,1] <- NULL
   by_cyl <- dplyr::group_by(Datachem, cluster)
   stiff <- dplyr::summarise(by_cyl,
@@ -48,7 +49,7 @@ Stiffclust <- function(Dataclust, plt){
   M_stiff <- t(M_stiff)
   
   N_clus <- ncol(M_stiff)
-  colorn = topo.colors(N_clus, alpha = 1)
+  colorn = hcl.colors(N_clus, palette = "viridis")
   y <- rbind(3, 2, 1, 1, 2, 3)
   y <- y/10
   

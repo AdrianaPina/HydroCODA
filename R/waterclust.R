@@ -22,22 +22,16 @@
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
 #' data(Balance)
-#' Dataclust <- waterclust(Balance, height = 35, typ = 2)
+#' Dataclust <- waterclust(Balance, height = 50, typ = 2)
 
 waterclust <- function(Data, height, typ){
   
-  
-  #Eliminar variables con más del 15% de datos faltantes
-  
-  #falt <- (summarise_all(Data, funs(sum(is.na(.))))) / nrow(Data)
-  #if 
-  
   Datachem <- Data
   Datachem[,1:4] <- NULL
-  
+  utils::globalVariables(names(Datachem))
   Comp <- compositions::acomp(Datachem)
   if(typ == 1){
-  dd <- dist(t(compositions::clr(Comp)))  
+  dd <- stats::dist(t(compositions::clr(Comp)))  
   }
   else {
   dd <- compositions::clr(Comp)

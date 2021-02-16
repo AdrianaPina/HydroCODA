@@ -35,7 +35,7 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   
   dfb <- cbind(Dataclust[,1:4],Dataclust$cluster) 
   N_clus <- max(summary(Dataclust$cluster))
-  colorn = topo.colors(N_clus, alpha=1)
+  colorn = hcl.colors(N_clus, palette = "viridis")
   
   Titulos <- c('ID','lat','long','Tipo','cluster')
   colnames(dfb) <- Titulos
@@ -45,10 +45,9 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   dfb$long= Dataclust$long
   dfb_project <- sf::st_as_sf(dfb, coords = c("long", "lat"), crs=  crsprj) #dar formato espacial
 
-  
   Mapa <-  mapview::mapview(dfb_project, zcol = "cluster",legend = TRUE,
                    viewer.suppress = mapout,
-                   col.regions = colorn)
+                   map.regions = colorn)
   if(!is.null(Area)){
     Mapa <- Mapa + mapview::mapView(Area, color = "red",alpha.regions = 0,legend = FALSE)
   }

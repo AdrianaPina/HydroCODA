@@ -26,7 +26,7 @@ using the Ward aglomeration method. Compositional Data (CoDA) approach and the C
 }
 \examples{
 data(Balance)
-Dataclust <- waterclust(Balance, height = 35, typ = 2)
+Dataclust <- waterclust(Balance, height = 50, typ = 2)
 }
 \references{
 Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.

@@ -35,7 +35,13 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   
   dfb <- cbind(Dataclust[,1:4],Dataclust$cluster) 
   N_clus <- max(summary(Dataclust$cluster))
-  colorn = hcl.colors(N_clus, palette = "viridis")
+  colorn <- hcl.colors(N_clus, palette = "viridis")
+  
+  TRANS <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+  
+  Area <- sp::spTransform(Area, TRANS)
+  Geology <- sp::spTransform(Geology, TRANS)
+  Faults <- sp::spTransform(Faults, TRANS)
   
   Titulos <- c('ID','lat','long','Tipo','cluster')
   colnames(dfb) <- Titulos
@@ -43,7 +49,7 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   dfb$poph <- paste(Dataclust$ID, "Cluster", Dataclust$cluster, Dataclust$tipo)
   dfb$lat= Dataclust$lat
   dfb$long= Dataclust$long
-  dfb_project <- sf::st_as_sf(dfb, coords = c("long", "lat"), crs=  crsprj) #dar formato espacial
+  dfb_project <- sf::st_as_sf(dfb, coords = c("long", "lat"), crs=  TRANS) #dar formato espacial
 
   Mapa <-  mapview::mapview(dfb_project, zcol = "cluster",legend = TRUE,
                    viewer.suppress = mapout,

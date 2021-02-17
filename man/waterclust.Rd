@@ -4,7 +4,7 @@
 \alias{waterclust}
 \title{Clustering of hydrochemical water samples using Compositional Data (CoDA) approach.}
 \usage{
-waterclust(Data, height, typ)
+waterclust(Data, height, typ, chem.name = TRUE)
 }
 \arguments{
 \item{Data}{is dataframe that contains the hydrochemical composition of water samples.
@@ -14,6 +14,8 @@ All concentrations are in meq/l. Aditional chemical compounds must be added in c
 \item{height}{is an integer that defines the height of the treecut to define clusters}
 
 \item{typ}{is a double between 0 and 1 which defines the analysis type. \emph{typ = 1} for the samples clustering and, \emph{typ = 2} for the chemical compounds clustering.}
+
+\item{chem.name}{......}
 }
 \value{
 Prints a matrix that contains the hydrochemical composition of water samples and the assigned cluster. A dendogram using the established \emph{height} is plotted.
@@ -26,7 +28,7 @@ using the Ward aglomeration method. Compositional Data (CoDA) approach and the C
 }
 \examples{
 data(Balance)
-Dataclust <- waterclust(Balance, height = 50, typ = 2)
+Dataclust <- waterclust(Balance, height = 50, typ = 2, chem.name = TRUE)
 }
 \references{
 Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.

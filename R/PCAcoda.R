@@ -53,7 +53,7 @@ PCAcoda <- function(Dataclust, comp1, comp2){
   scores1<-cbind(scor,Dataclust$cluster)#clusters
   scores1 <- as.data.frame(scores1)
   N_clus <- max(summary(Dataclust$cluster))
-  colorn <- topo.colors(N_clus, alpha=1)
+  colorn <- hcl.colors(N_clus, palette = "viridis")
   
   #Figure
   name <- as.character(Dataclust$tipo)
@@ -62,7 +62,8 @@ PCAcoda <- function(Dataclust, comp1, comp2){
                          type = 'scatter', mode = 'markers',
                          text = ~paste(Dataclust$ID, "<br />", 
                                        "Cluster", scores1[,ncol(scores1)],"<br />", name), 
-                         hoverinfo = "text")
+                         hoverinfo = "text", colors = colorn, color = ~scores1[, dim(scores1)[2]])
+  fig <- plotly::hide_colorbar(fig)
   fig <- plotly::add_annotations(fig, ax = loads[,1]*10, ay = loads[,comp2]*10, axref='x', ayref='y', 
                             x = 0, y = 0, xref='x', yref='y',arrowcolor='gray',
                             text = row.names(loads),arrowhead = 0,arrowsize = 0.00001,

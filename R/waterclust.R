@@ -9,7 +9,7 @@
 #' All concentrations are in meq/l. Aditional chemical compounds must be added in columns after the Fe column concentration.
 #' @param height is an integer that defines the height of the treecut to define clusters
 #' @param typ is a double between 0 and 1 which defines the analysis type. \emph{typ = 1} for the samples clustering and, \emph{typ = 2} for the chemical compounds clustering. 
-#'
+#' @param chem.name ......
 #' @return Prints a matrix that contains the hydrochemical composition of water samples and the assigned cluster. A dendogram using the established \emph{height} is plotted.
 #' 
 #' @export
@@ -22,19 +22,25 @@
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
 #' data(Balance)
-#' Dataclust <- waterclust(Balance, height = 50, typ = 2)
+#' Dataclust <- waterclust(Balance, height = 50, typ = 2, chem.name = TRUE)
 
-waterclust <- function(Data, height, typ){
+waterclust <- function(Data, height, typ, chem.name = TRUE){
   
   Datachem <- Data
   Datachem[,1:4] <- NULL
-  utils::globalVariables(names(Datachem))
+  # utils::globalVariables(names(Datachem))
+  
+  if(chem.name){
+    Cl <- HCO3 <-SO4 <- Mg <- Ca <- Na <- K <- NULL
+  } else {
+    print("Introduce names of chemical compounds")
+  }
+  
   Comp <- compositions::acomp(Datachem)
   if(typ == 1){
-  dd <- stats::dist(t(compositions::clr(Comp)))  
-  }
-  else {
-  dd <- compositions::clr(Comp)
+    dd <- stats::dist(t(compositions::clr(Comp)))  
+  } else {
+    dd <- compositions::clr(Comp)
   }  
   Tree <- stats::hclust(stats::dist(dd), method = "ward.D")
   Dendogram <- plot(Tree, labels = Tree$X,cex.axis = 1.2,cex.lab = 1,cex = 0.55, 

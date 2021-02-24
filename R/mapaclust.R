@@ -28,7 +28,7 @@
 #' data(geological_units, faults, Area_data, Dataclust)
 #' Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
 #'                  Geology = geological_units, Faults =faults, mapout = TRUE, 
-#'                  shp_field = "SimboloUC", Filename = "clusterMap")
+#'                  shp_field = "SimboloUC", Filename = NULL)
 #' Fig
 
 mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field, Filename){

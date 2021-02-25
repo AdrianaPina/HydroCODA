@@ -1,0 +1,19 @@
+---
+title: "Example_HydroCODA"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example_HydroCODA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(HydroCODA)
+```

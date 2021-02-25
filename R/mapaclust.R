@@ -39,9 +39,6 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
   
   TRANS <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
   
-  Area <- sp::spTransform(Area, TRANS)
-  Geology <- sp::spTransform(Geology, TRANS)
-  Faults <- sp::spTransform(Faults, TRANS)
   
   Titulos <- c('ID','lat','long','Tipo','cluster')
   colnames(dfb) <- Titulos
@@ -55,12 +52,15 @@ mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = 
                    viewer.suppress = mapout,
                    map.regions = colorn)
   if(!is.null(Area)){
+    Area <- sp::spTransform(Area, TRANS)
     Mapa <- Mapa + mapview::mapView(Area, color = "red",alpha.regions = 0,legend = FALSE)
   }
   if(!is.null(Faults)){
+    Faults <- sp::spTransform(Faults, TRANS)
     Mapa <- Mapa + mapview::mapView(Faults,color = "black",legend = FALSE)
   }
   if(!is.null(Geology)){
+    Geology <- sp::spTransform(Geology, TRANS)
     Mapa <- Mapa + mapview::mapView(Geology, zcol = shp_field, alpha.regions = 0.4,
                            legend = FALSE) 
     }

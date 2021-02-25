@@ -4,18 +4,18 @@
 \alias{waterclust}
 \title{Clustering of hydrochemical water samples using Compositional Data (CoDA) approach.}
 \usage{
-waterclust(Data, height, typ, chem.name = TRUE)
+waterclust(Data, height, typ, chem.name)
 }
 \arguments{
 \item{Data}{is dataframe that contains the hydrochemical composition of water samples.
-Titles must be as follows: ID, long, lat, source, Mg, Ca, Na, K, HCO3, Cl,SO4, NO3, NO2, Fe.
-All concentrations are in meq/l. Aditional chemical compounds must be added in columns after the Fe column concentration.}
+Titles must be as follows: ID, long, lat, source, Mg, Ca, Na, K, HCO3, Cl, SO4.
+All concentrations are in meq/l. Additional chemical compounds must be added in columns after the Fe column concentration and titles must be introduced in a vector in the \emph{chem.name} variable.}
 
 \item{height}{is an integer that defines the height of the treecut to define clusters}
 
 \item{typ}{is a double between 0 and 1 which defines the analysis type. \emph{typ = 1} for the samples clustering and, \emph{typ = 2} for the chemical compounds clustering.}
 
-\item{chem.name}{......}
+\item{chem.name}{is a vector than contains the titles of the additional chemical compoundS contained in the data set. If \emph{chem.name = FALSE}, the following chemical compounds are assumed: \emph{Mg, Ca, Na, K, HCO3, Cl, SO4}.}
 }
 \value{
 Prints a matrix that contains the hydrochemical composition of water samples and the assigned cluster. A dendogram using the established \emph{height} is plotted.
@@ -24,11 +24,11 @@ prints a matrix that contains the hydrochemical composition of water samples and
 }
 \description{
 This function allows the user to define clusters according to the hydrochemical characteristics of water samples and to build dendograms,
-using the Ward aglomeration method. Compositional Data (CoDA) approach and the Centered log ratio - clr transformation \cite{(Aitchison, 1982)} are implemented for the data treatment.
+using the Ward agglomeration method. Compositional Data (CoDA) approach and the Centered log ratio - clr transformation \cite{(Aitchison, 1982)} are implemented for the data treatment.
 }
 \examples{
 data(Balance)
-Dataclust <- waterclust(Balance, height = 50, typ = 2, chem.name = TRUE)
+Dataclust <- waterclust(Balance, height = 50, typ = 2, chem.name = FALSE)
 }
 \references{
 Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.

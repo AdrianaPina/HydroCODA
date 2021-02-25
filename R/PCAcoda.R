@@ -28,7 +28,7 @@
 #' 
 #' @examples
 #' data("Balance")
-#' Dataclust <- waterclust(Balance, height = 35, typ = 2)
+#' Dataclust <- waterclust(Balance, height = 50, typ = 2, chem.name = FALSE)
 #' PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 
 PCAcoda <- function(Dataclust, comp1, comp2){

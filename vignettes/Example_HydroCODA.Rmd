@@ -13,7 +13,29 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-
+## ----echo=TRUE, results='hide'------------------------------------------------
 ```{r setup}
+## ----echo=TRUE, results='hide'------------------------------------------------
 library(HydroCODA)
+# Load water chemical concentrations database and shapes for the geology faults and study area
+data(Balance, geological_units, faults, Area_data)
+
+# Definition of hydrochemical clusters using the CoDA approach
+Dataclust <- waterclust(Balance, height = 50, typ = 2, chem.name = FALSE)
+
+# Draw Stiff diagrams based on the defined clustering
+Stiffclust(Dataclust, plt = TRUE)
+
+# Run the Principal COmponents Analysis using the CoDA approach
+PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
+
+
+mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
+          Geology = geological_units, Faults =faults, mapout = FALSE, 
+          shp_field = "SimboloUC", Filename = NULL)
+
+## ----echo=TRUE, results='hide'------------------------------------------------
+
 ```
+
+

@@ -1,5 +1,5 @@
 ---
-author: "Adriana Piña"
+author: "Adriana Piña & David Zamora"
 date: "27/7/2020"
 output: github_document
 bibliography: "`r here::here('README-references.bib')`"

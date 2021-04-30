@@ -37,7 +37,7 @@ waterclust <- function(Data, height, typ, chem.name){
     dd <- compositions::clr(Comp)
   }  
   Tree <- stats::hclust(stats::dist(dd), method = "ward.D")
-  Dendogram <- plot(Tree, labels = Tree$X,cex.axis = 1.2,cex.lab = 1,cex = 0.55, 
+  Dendogram <- plot(Tree, labels = Data$ID,cex.axis = 1.2,cex.lab = 1,cex = 0.55, 
                     col = "gray40",main="Dendrograma",hang = -1)
   f <- stats::rect.hclust(Tree, h = height)
   N_clus <- length(f)
@@ -49,9 +49,8 @@ waterclust <- function(Data, height, typ, chem.name){
   } else {
     names(Datachem) <- chem.name
   }
-   
+
   Dataclust <- cbind(Data[,1:4], Datachem, cluster)
-  
-  
+
   print(Dataclust, Dendogram) 
 }

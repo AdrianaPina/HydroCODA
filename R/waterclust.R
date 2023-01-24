@@ -51,7 +51,8 @@ waterclust <- function(Data, height, typ, chem.name){
   }
 
   Dataclust <- cbind(Data[,1:4], Datachem, cluster)
-  print(Dataclust, Dendogram) 
+  # print(Dataclust, Dendogram) 
+  print("Results can be checked in Dataclust variable")
 
   print(Dendogram)
   return(Dataclust)

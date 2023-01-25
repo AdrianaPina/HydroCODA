@@ -20,8 +20,8 @@
 #' Stiff, H. A. (1951). The Interpretation of Chemical Water Analysis by Means of Patterns. Journal of Petroleum Technology, 3(10), 15–3. <DOI: 10.2118/951376-G>
 #' @examples
 #' data(Dataclust)
-#' Fig <- Stiffclust(Dataclust, plt = TRUE)
-#' Fig
+#' Fig_stiff <- Stiffclust(Dataclust, plt = TRUE)
+
 
 Stiffclust <- function(Dataclust, plt){
   Datachem <- Dataclust

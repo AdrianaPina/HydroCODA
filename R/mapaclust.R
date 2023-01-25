@@ -26,10 +26,10 @@
 #' Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.
 #' @examples
 #' data(geological_units, faults, Area_data, Dataclust)
-#' Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
+#' Fig_map <- mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
 #'                  Geology = geological_units, Faults =faults, mapout = TRUE, 
 #'                  shp_field = "SimboloUC", Filename = NULL)
-#' Fig
+#' Fig_map
 
 mapaclust <- function(Dataclust, crsprj = 4326, Area, Geology, Faults, mapout = FALSE, shp_field, Filename){
   

@@ -8,7 +8,7 @@ header-includes:
   - \usepackage{amsmath}
 ---
 
-[![Build Status](https://travis-ci.com/AdrianaPina/HydroCODA.svg?branch=master)](https://travis-ci.com/AdrianaPina/HydroCODA)
+<!-- [![Build Status](https://travis-ci.com/AdrianaPina/HydroCODA.svg?branch=master)](https://travis-ci.com/AdrianaPina/HydroCODA) -->
 
 
 ```{r setup, include=FALSE}

@@ -47,10 +47,10 @@ This function requires the matrix with the hydrochemical composition of water sa
 }
 \examples{
 data(geological_units, faults, Area_data, Dataclust)
-Fig <- mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
+Fig_map <- mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
                  Geology = geological_units, Faults =faults, mapout = TRUE, 
                  shp_field = "SimboloUC", Filename = NULL)
-Fig
+Fig_map
 }
 \references{
 Aitchison, J. (1982). The Statistical Analysis of Compositional Data. Journal of the Royal Statistical Society. Series B (Methodological), 44(2), 139–177.

@@ -6,9 +6,9 @@ Authors@R:
            family = "Piña",
            role = c("aut", "cre"),
            email = "appinaf@unal.edu.co",
-           comment = c(ORCID = "0000-0003-2252-2160")),
+           comment = c(ORCID = "0000-0003-2252-2160", "Universidad Nacional de Colombia - Sede Bogotá")),
            person("David", "Zamora", email = "dazamoraa@unal.edu.co", 
-           comment = c(ORCID = "0000-0002-2256-7054"), role = c("aut")))
+           comment = c(ORCID = "0000-0002-2256-7054", "Universidad Nacional de Colombia - Sede Bogotá"), role = c("aut")))
 Description: A tool to perform a  Multistatical Analysis using the Compositional Data approach and a center-log-ratio (clr) transformation for the analysis of water samples.
             It allows to perform hierarchical cluster analysis and to create an interactive map that includes the location of the water sample and, 
             the assigned cluster. Based on the clustering results, representative Stiff diagrams for each cluster are built. 

@@ -65,3 +65,10 @@ Piña, Adriana, Leonardo David Donado, Sarah Blake, and Thomas Cramer. 2018. “
 Stiff, Henry A. 1951. “The Interpretation of Chemical Water Analysis by Means of Patterns.” *Journal of Petroleum Technology* 3 (10). Society of Petroleum Engineers: 15–13. doi:[10.2118/951376-G](https://doi.org/10.2118/951376-G).
 
 Van Den Boogaart, Gerald, and Raimon Tolosana. 2015. *Package ’compositions’ Title Compositional Data Analysis*. <http://www.stat.boogaart.de/compositions>.
+
+</div>
+
+## Authors
+ Adriana Piña⁰ (appinaf@unal.edu.co)\
+ David Zamora⁰ (dazamoraa@unal.edu.co)\
+ ⁰ Universidad Nacional de Colombia - Sede Bogotá 

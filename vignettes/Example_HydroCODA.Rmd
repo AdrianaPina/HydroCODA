@@ -28,10 +28,10 @@ Stiffclust(Dataclust, plt = TRUE)
 # Run the Principal Component Analysis using the CoDA approach and draw the biplot
 PCAcoda(Dataclust, comp1 = 1, comp2 = 2)
 
-# Draw the geographical distribution of water samples showing the assigned cluster
-mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
-          Geology = geological_units, Faults =faults, mapout = FALSE, 
-          shp_field = "SimboloUC", Filename = NULL)
+# To draw the geographical distribution of water samples showing the assigned cluster you must run the following lines
+#mapaclust(Dataclust, crsprj = 4326, Area = Area_data, 
+          #Geology = geological_units, Faults =faults, mapout = FALSE, 
+          #shp_field = "SimboloUC", Filename = NULL)
 
 
 ```

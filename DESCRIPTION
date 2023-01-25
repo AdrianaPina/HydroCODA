@@ -22,12 +22,8 @@ Description: A tool to perform a  Multistatical Analysis using the Compositional
 Imports: 
     compositions,
     dplyr,
-    ggplot2,
     mapview,
-    magrittr,
     plotly,
-    rgdal,
-    tidyr,
     stats,
     sf, 
     sp

@@ -1,5 +1,5 @@
 Package: HydroCODA
-Title: Multistatical Analysis using the Compositional Data Approach for hydrochemical water samples
+Title: Multistatical analysis using the compositional data approach for hydrochemical water samples
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Adriana",
